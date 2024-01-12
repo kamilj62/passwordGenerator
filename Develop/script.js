@@ -37,7 +37,7 @@ function generatePassword() {
 	}
 	// STEP 2 - logic to generate password
 	var allPossibleOptions = [];
-	var passwordGenerated = [];
+	var passwordGenerated = "";
 
 	// create an array with elements from the users choices
 
@@ -68,19 +68,20 @@ function generatePassword() {
 	function randomSelection(arr) {
 		
 		for (let i = 0; i < pwLength; i++) {
-			let rng =[Math.floor(Math.random() * arr.length)];
+			let rng = Math.floor(Math.random() * arr.length);
+			console.log(rng);
 			passwordGenerated = passwordGenerated + arr[rng];
 		}
-		return passwordGenerated	;
+		return passwordGenerated;
 		
 		//the randomly selected element
 	}
 	// run our randomSelection program 
 	var mandatory = randomSelection(allPossibleOptions);
 	console.log('mandatory', mandatory, mandatory.length);
-
+	mandatory = mandatory + '\n' + 'length: ' + mandatory.length;
 	// return password and password length
-	return mandatory, mandatory.length;
+	return mandatory;
 	
 }
 
@@ -88,11 +89,10 @@ function generatePassword() {
 function writePassword() {
 	var password = generatePassword();
 	var passwordText = document.querySelector('#password');
-	var passwordLength = document.querySelector('#passwordLength');
+	
 
 
 	passwordText.value = password
-	passwordLength.value = password.length;
 }
 
 // Add event listener to generate button
