@@ -63,7 +63,10 @@ function generatePassword() {
 		// final array
 		console.log(allPossibleOptions);
 	}
-
+	if (allPossibleOptions = []) {
+		alert('Please choose a password');
+		return allPossibleOptions;
+	}
 	//create a function that randomly select an element from an array
 	function randomSelection(arr) {
 		
@@ -89,8 +92,6 @@ function generatePassword() {
 function writePassword() {
 	var password = generatePassword();
 	var passwordText = document.querySelector('#password');
-	
-
 
 	passwordText.value = password
 }
