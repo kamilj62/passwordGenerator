@@ -27,14 +27,6 @@ function generatePassword() {
   	var uppercase = confirm('Do you want Uppercase Characters in your password?')
   	var nums = confirm('Do you want Numbers in your password?')
   	var specChar = confirm('Do you want Special Characters in your password?')
-	// validate that the user has selected at least one type of character
-  	if (lowercase || uppercase || nums || specChar !== 0) {
-		alert('Thank you');
-	}
-	else {
-		alert('Please enter password length between 8 and 128');
-		return;
-	}
 	// STEP 2 - logic to generate password
 	var allPossibleOptions = [];
 	var passwordGenerated = "";
@@ -62,18 +54,27 @@ function generatePassword() {
 		
 		// final array
 		console.log(allPossibleOptions);
-	}
-	if (allPossibleOptions = []) {
-		alert('Please choose a password');
-		return allPossibleOptions;
-	}
+		console.log(allPossibleOptions.length);
+		// validate that the user has selected at least one type of character
+		if (lowercase || uppercase || nums || specChar !== 0) {
+			alert('Thank you');
+		}
+		else {
+			alert('Please enter your password');
+			return;
+		}
+	} 
+
 	//create a function that randomly select an element from an array
 	function randomSelection(arr) {
 		
 		for (let i = 0; i < pwLength; i++) {
 			let rng = Math.floor(Math.random() * arr.length);
 			console.log(rng);
-			passwordGenerated = passwordGenerated + arr[rng];
+			if (rng !== 0) {
+				passwordGenerated = passwordGenerated + arr[rng];
+			}
+			
 		}
 		return passwordGenerated;
 		
